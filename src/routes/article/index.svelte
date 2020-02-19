@@ -1,6 +1,6 @@
 <script context="module">
   import config from "../../lib/config.js";
-  import { createClient, FrontPageQuery } from "../../lib/data.js";
+  import { createClient, FrontPageQuery, pagetrans } from "../../lib/data.js";
   import NodeTeaser from "./_NodeTeaser.svelte";
   import Paginator from "./_Paginator.svelte";
 
@@ -17,7 +17,11 @@
       query: FrontPageQuery,
       variables: { limit, offset }
     });
-    return { nodes: nodes.data.nodeQuery.entities, count: nodes.data.nodeQuery.count, pg };
+    return {
+      nodes: nodes.data.nodeQuery.entities,
+      count: nodes.data.nodeQuery.count,
+      pg
+    };
   }
 </script>
 
@@ -32,12 +36,14 @@
   <title>{config.site_name}</title>
 </svelte:head>
 
-<h1>{config.site_name}</h1>
+<main transition:pagetrans>
+  <h1>{config.site_name}</h1>
 
-<div class="row">
-  {#each nodes as node}
-    <NodeTeaser {node} />
-  {/each}
-</div>
+  <div class="row">
+    {#each nodes as node}
+      <NodeTeaser {node} />
+    {/each}
+  </div>
 
-<Paginator {pg} {max} />
+  <Paginator {pg} {max} />
+</main>

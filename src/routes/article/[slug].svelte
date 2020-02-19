@@ -1,5 +1,5 @@
 <script context="module">
-  import { createClient, NodeByPathQuery, getNodeURL } from "../../lib/data.js";
+  import { createClient, NodeByPathQuery, getNodeURL, pagetrans } from "../../lib/data.js";
   import SubmittedBy from "./_SubmittedBy.svelte";
   import moment from "moment";
 
@@ -19,17 +19,17 @@
 </script>
 
 <style>
-img.author {
-  width: 10rem;
-  height: 10rem;
-}
+  img.author {
+    width: 10rem;
+    height: 10rem;
+  }
 </style>
 
 <svelte:head>
   <title>{node.title}</title>
 </svelte:head>
 
-<div data-nid={node.nid} class="container">
+<main data-nid={node.nid} class="container" transition:pagetrans>
   <h1 class="title">{node.title}</h1>
   <div>
     <SubmittedBy {node} />
@@ -40,12 +40,14 @@ img.author {
   </div>
   <hr />
   {#if !!author.userPicture}
-  <img
-    class="float-right author rounded-circle"
-    src={author.userPicture.url}
-    title={author.userPicture.alt || author.name}
-    alt={author.userPicture.alt || author.name} />
+    <img
+      class="float-right author rounded-circle"
+      src={author.userPicture.url}
+      title={author.userPicture.alt || author.name}
+      alt={author.userPicture.alt || author.name} />
   {/if}
   <h2>Author: {author.name}</h2>
-  <p>Member for: {moment.duration(moment().diff(moment.unix(author.created))).humanize()}</p>
-</div>
+  <p>
+    Member for: {moment.duration(moment().diff(moment.unix(author.created))).humanize()}
+  </p>
+</main>

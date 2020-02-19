@@ -1,5 +1,6 @@
 <script>
   import config from "../lib/config";
+  import { pagetrans } from "../lib/data.js";
 </script>
 
 <style>
@@ -35,44 +36,46 @@
   <title>{config.site_name}</title>
 </svelte:head>
 
-<h1>{config.site_name}</h1>
+<main transition:pagetrans>
+  <h1>{config.site_name}</h1>
 
-<div class="container">
-  <figure class="col">
-    <figcaption>Svelte &amp; Sapper</figcaption>
-    <img src="slides/svelte-logo.png" alt="Svelte logo" />
-  </figure>
+  <div class="container">
+    <figure class="col">
+      <figcaption>Svelte &amp; Sapper</figcaption>
+      <img src="slides/svelte-logo.png" alt="Svelte logo" />
+    </figure>
 
-  <figure class="col">
-    <figcaption>Drupal</figcaption>
-    <img src="slides/drupal 8 logo CMYK 300.png" alt="Drupal logo" />
-  </figure>
-</div>
+    <figure class="col">
+      <figcaption>Drupal</figcaption>
+      <img src="slides/drupal 8 logo CMYK 300.png" alt="Drupal logo" />
+    </figure>
+  </div>
 
-<p>
-  Demo site for decoupled
-  <a href="https://drupal.org" target="_blank">Drupal</a>
-  +
-  <a href="https://sapper.svelte.dev" target="_blank">Sapper</a>
-  +
-  <a href="https://svelte.dev" target="_blank">Svelte</a>
-  .
-</p>
+  <p>
+    Demo site for decoupled
+    <a href="https://drupal.org" target="_blank">Drupal</a>
+    +
+    <a href="https://sapper.svelte.dev" target="_blank">Sapper</a>
+    +
+    <a href="https://svelte.dev" target="_blank">Svelte</a>
+    .
+  </p>
 
-<ul>
-  <li>
-    <a
-      href="https://bitbucket.org/spinspire/drupal-sapper-svelte-demo"
-      target="_blank">
-      Git repo and README with more info
-    </a>
-  </li>
-  <li>
-    <a href="/slides/index.html" target="_blank">Presentation slides</a>
-  </li>
-  <li>
-    <a href="https://youtube.com/spinspire" target="_blank">
-      Demo screencast video (COMING SOON)
-    </a>
-  </li>
-</ul>
+  <ul>
+    <li>
+      <a
+        href="https://bitbucket.org/spinspire/drupal-sapper-svelte-demo"
+        target="_blank">
+        Git repo and README with more info
+      </a>
+    </li>
+    <li>
+      <a href="/slides/index.html" target="_blank">Presentation slides</a>
+    </li>
+    <li>
+      <a href="https://youtube.com/spinspire" target="_blank">
+        Demo screencast video (COMING SOON)
+      </a>
+    </li>
+  </ul>
+</main>

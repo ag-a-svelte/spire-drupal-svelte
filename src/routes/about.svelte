@@ -1,7 +1,13 @@
+<script>
+  import { pagetrans } from "../lib/data.js";
+</script>
+
 <svelte:head>
-	<title>About</title>
+  <title>About</title>
 </svelte:head>
 
-<h1>About this site</h1>
+<main transition:pagetrans>
+  <h1>About this site</h1>
 
-<p>This is the 'about' page. There's not much here.</p>
+  <p>This is the 'about' page. There's not much here.</p>
+</main>

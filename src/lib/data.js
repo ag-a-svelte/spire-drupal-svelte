@@ -1,5 +1,8 @@
 import ApolloClient, { gql } from 'apollo-boost';
 import config from './config';
+import { slide as trns } from "svelte/transition";
+
+export const pagetrans = trns;
 
 export const createClient = (fetch) => new ApolloClient({
   fetch,
