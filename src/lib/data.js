@@ -45,10 +45,8 @@ query FrontPage($limit: Int = 10, $offset: Int = 0) {
         }
         title,
         body {
-          value,
           format,
           processed,
-          summary,
           summaryProcessed
         }
         promote,
@@ -61,6 +59,48 @@ query FrontPage($limit: Int = 10, $offset: Int = 0) {
   }
 }
 `;
+
+export const NodeByPathQuery = gql`
+query ArticleNodeByPath($path: String!) {
+  route: route(path: $path) {
+    ... on EntityCanonicalUrl {
+      entity {
+        ... on NodeArticle {
+          created
+          changed
+          status
+          title
+          body {
+            format
+            processed
+            summaryProcessed
+          }
+          type {
+            targetId
+          }
+          path {
+            alias
+          }
+          uid {
+            entity {
+              ... on User {
+                uid
+                name
+                mail
+                created
+                userPicture {
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
 
 export function getUserURL(entity) {
   const path = entity.path && entity.path.alias || `/user/${entity.uid}`

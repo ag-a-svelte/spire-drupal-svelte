@@ -20,5 +20,5 @@
   <div class="summary">
     {@html node.body.summaryProcessed || node.body.processed}
   </div>
-  <a class="btn btn-primary btn-sm" href={getNodeURL(node)}>Read more &nbsp;<i class="material-icons">send</i></a>
+  <a rel=prefetch class="btn btn-primary btn-sm" href={getNodeURL(node)}>Read more &nbsp;<i class="material-icons">send</i></a>
 </div>

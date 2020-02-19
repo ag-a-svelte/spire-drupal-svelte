@@ -9,12 +9,13 @@
       query: FrontPageQuery
       // variables: { limit: 100, offset: 0 }
     });
-    return { nodes };
+    return { nodes: nodes.data.nodeQuery.entities, count: nodes.count };
   }
 </script>
 
 <script>
   export let nodes;
+  export let count;
 </script>
 
 <svelte:head>
@@ -24,7 +25,7 @@
 <h1>{config.site_name}</h1>
 
 <div class="row">
-  {#each nodes.data.nodeQuery.entities as node}
+  {#each nodes as node}
     <NodeTeaser {node} />
   {/each}
 </div>
