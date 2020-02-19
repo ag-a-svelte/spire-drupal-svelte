@@ -1,7 +1,7 @@
 <script>
   export let node;
   import SubmittedBy from "./_SubmittedBy.svelte";
-  import { getNodeURL } from "../lib/data.js";
+  import { getNodeURL } from "../../lib/data.js";
 </script>
 
 <style>

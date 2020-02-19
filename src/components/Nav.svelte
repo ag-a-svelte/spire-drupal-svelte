@@ -52,5 +52,6 @@
 	<ul>
 		<li><a rel=prefetch class:selected='{segment === undefined}' href='.'>home</a></li>
 		<li><a class:selected='{segment === "about"}' href='about'>about</a></li>
+		<li><a rel=prefetch class:selected='{segment === "article"}' href='article'>articles</a></li>
   </ul>
 </nav>

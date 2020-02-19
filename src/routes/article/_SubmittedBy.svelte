@@ -1,7 +1,7 @@
 <script>
   export let node;
   const entity = node.uid.entity;
-  import { getUserURL } from "../lib/data.js";
+  import { getUserURL } from "../../lib/data.js";
   const url = getUserURL(node.uid.entity);
   import moment from "moment";
 </script>

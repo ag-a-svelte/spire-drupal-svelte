@@ -1,6 +1,6 @@
 <script context="module">
   import { createClient, NodeByPathQuery, getNodeURL } from "../../lib/data.js";
-  import SubmittedBy from "../_SubmittedBy.svelte";
+  import SubmittedBy from "./_SubmittedBy.svelte";
   import moment from "moment";
 
   export async function preload({ path }) {

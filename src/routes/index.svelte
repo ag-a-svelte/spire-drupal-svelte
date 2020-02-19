@@ -1,32 +1,35 @@
-<script context="module">
-  import config from "../lib/config.js";
-  import { createClient, FrontPageQuery } from "../lib/data.js";
-  import NodeTeaser from "./_NodeTeaser.svelte";
-  import Paginator from "./_Paginator.svelte";
-
-  const limit = 10;
-
-  export async function preload({ query }) {
-    const client = createClient(this.fetch);
-    let pg = 0;
-    if (query.pg && !isNaN(query.pg)) {
-      pg = parseInt(query.pg);
-    }
-    const offset = pg * limit;
-    const nodes = await client.query({
-      query: FrontPageQuery,
-      variables: { limit, offset }
-    });
-    return { nodes: nodes.data.nodeQuery.entities, count: nodes.data.nodeQuery.count, pg };
-  }
-</script>
-
 <script>
-  export let nodes;
-  export let count;
-  export let pg;
-  let max = parseInt(count) / limit;
+  import config from "../lib/config";
 </script>
+
+<style>
+  figure {
+    text-align: center;
+    margin: 0 auto;
+    font-weight: 100;
+    font-size: 200%;
+  }
+
+  img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 0 1em 0;
+  }
+
+  p {
+    margin: 1em auto;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  @media (min-width: 480px) {
+    h1 {
+      font-size: 4em;
+    }
+  }
+</style>
 
 <svelte:head>
   <title>{config.site_name}</title>
@@ -34,10 +37,42 @@
 
 <h1>{config.site_name}</h1>
 
-<div class="row">
-  {#each nodes as node}
-    <NodeTeaser {node} />
-  {/each}
+<div class="container">
+  <figure class="col">
+    <figcaption>Svelte &amp; Sapper</figcaption>
+    <img src="slides/svelte-logo.png" alt="Svelte logo" />
+  </figure>
+
+  <figure class="col">
+    <figcaption>Drupal</figcaption>
+    <img src="slides/drupal 8 logo CMYK 300.png" alt="Drupal logo" />
+  </figure>
 </div>
 
-<Paginator {pg} {max} />
+<p>
+  Demo site for decoupled
+  <a href="https://drupal.org" target="_blank">Drupal</a>
+  +
+  <a href="https://sapper.svelte.dev" target="_blank">Sapper</a>
+  +
+  <a href="https://svelte.dev" target="_blank">Svelte</a>
+  .
+</p>
+
+<ul>
+  <li>
+    <a
+      href="https://bitbucket.org/spinspire/drupal-sapper-svelte-demo"
+      target="_blank">
+      Git repo and README with more info
+    </a>
+  </li>
+  <li>
+    <a href="/slides/index.html" target="_blank">Presentation slides</a>
+  </li>
+  <li>
+    <a href="https://youtube.com/spinspire" target="_blank">
+      Demo screencast video (COMING SOON)
+    </a>
+  </li>
+</ul>
