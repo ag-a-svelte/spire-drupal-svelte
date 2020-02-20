@@ -1,12 +1,20 @@
-import ApolloClient, { gql } from 'apollo-boost';
+import ApolloClient from 'apollo-client';
+import gql from 'graphql-tag';
+import { InMemoryCache } from 'apollo-boost';
+import { createHttpLink } from "apollo-link-http";
 import config from './config';
 import { slide as trns } from "svelte/transition";
 
 export const pagetrans = trns;
 
 export const createClient = (fetch) => new ApolloClient({
-  fetch,
-  uri: config.drupal_base_url + '/graphql',
+  cache: new InMemoryCache,
+  link: createHttpLink({
+    fetch,
+    // Using GET request for GraphQL queries so that ServiceWorker can fetch them
+    useGETForQueries: true,
+    uri: config.drupal_base_url + '/graphql',
+  }),
 });
 
 export const FrontPageQuery = gql`
