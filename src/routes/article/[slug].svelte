@@ -1,5 +1,10 @@
 <script context="module">
-  import { createClient, NodeByPathQuery, getNodeURL, pagetrans } from "../../lib/data.js";
+  import {
+    createClient,
+    NodeByPathQuery,
+    getNodeURL,
+    pagetrans
+  } from "../../lib/data.js";
   import SubmittedBy from "./_SubmittedBy.svelte";
   import moment from "moment";
 
@@ -23,6 +28,9 @@
     width: 10rem;
     height: 10rem;
   }
+  .field-tags label {
+    font-weight: bold;
+  }
 </style>
 
 <svelte:head>
@@ -35,8 +43,20 @@
     <SubmittedBy {node} />
   </div>
   <hr />
+  <img
+    src={node.fieldImage.url}
+    alt={node.fieldImage.alt}
+    title={node.fieldImage.title} />
   <div>
     {@html node.body.processed}
+  </div>
+  <div class="field-tags">
+    <label class="mr-1 float-left">Tags: </label>
+    <ul class="list-inline">
+      {#each node.fieldTags as tag}
+        <li class="list-inline-item">{tag.entity.entityLabel}</li>
+      {/each}
+    </ul>
   </div>
   <hr />
   {#if !!author.userPicture}

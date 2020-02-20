@@ -73,6 +73,23 @@ query ArticleNodeByPath($path: String!) {
           changed
           status
           title
+          fieldImage {
+            url
+            width
+            height
+            alt
+            title
+            derivative(style:LARGE) {
+              width
+              height
+              url
+            }
+          }
+          fieldTags {
+            entity {
+              entityLabel
+            }
+          }
           body {
             format
             processed
@@ -93,6 +110,11 @@ query ArticleNodeByPath($path: String!) {
                 created
                 userPicture {
                   url
+                  derivative(style:THUMBNAIL) {
+                    width
+                    height
+                    url
+                  }
                 }
               }
             }
@@ -101,8 +123,7 @@ query ArticleNodeByPath($path: String!) {
       }
     }
   }
-}
-`;
+}`;
 
 
 export function getUserURL(entity) {
