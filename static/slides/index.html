@@ -54,6 +54,14 @@
     .reveal section img {
       /* no image border */
       border: 0px solid #fff;
+      background-color: transparent;
+    }
+    
+    .reveal h2 {
+      text-transform: capitalize;
+    }
+    .reveal code {
+      color: red;
     }
   </style>
 </head>
@@ -65,7 +73,7 @@
     <div class="slides">
 
       <section>
-        <h2>Drupal+Sapper+Svelte Demo</h2>
+        <h2>Drupal.Sapper.Svelte.GraphQL</h2>
         <div class="container">
           <div class="col">
             <img src="svelte-logo.png" />
@@ -73,15 +81,40 @@
           <div class="col">
             <img src="drupal 8 logo CMYK 300.png" />
           </div>
+          <div class="col">
+            <img src="graphql.png" />
+          </div>
         </div>
       </section>
 
       <section>
         <h1>Synopsis</h1>
         <ul>
-          <li class="fragment highlight-current-blue">Drupal 8 with JSON/REST</li>
-          <li class="fragment highlight-current-blue">Sapper</li>
-          <li class="fragment highlight-current-blue">Svelte</li>
+          <li class="fragment highlight-current-blue">Drupal 8 + GraphQL</li>
+          <li class="fragment highlight-current-blue">Sapper + Svelte</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Steps</h1>
+        <ul>
+          <li class="fragment highlight-current-blue">Add GraphQL to Drupal</li>
+          <li class="fragment highlight-current-blue">Enable CORS</li>
+          <li class="fragment highlight-current-blue">Set permissions</li>
+          <li class="fragment highlight-current-blue">Create Sapper app</li>
+          <li class="fragment highlight-current-blue">Create <code>/article</code> and <code>/article/*</code> routes</li>
+          <li class="fragment highlight-current-blue">Make GraphQL queries in the <code>preload</code> methods</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Benefits</h1>
+        <ul>
+          <li class="fragment highlight-current-blue">Performance.</li>
+          <li class="fragment highlight-current-blue">Better UX (prefetch, transitions, etc.)</li>
+          <li class="fragment highlight-current-blue">CMS for content, JavaScript for frontend.</li>
+          <li class="fragment highlight-current-blue">Easier to customize.</li>
+          <li class="fragment highlight-current-blue">More secure? Smaller attack surface.</li>
         </ul>
       </section>
 
