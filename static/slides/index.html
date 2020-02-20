@@ -56,10 +56,12 @@
       border: 0px solid #fff;
       background-color: transparent;
     }
-    
+
+    .reveal h1,
     .reveal h2 {
-      text-transform: capitalize;
+      text-transform: none;
     }
+
     .reveal code {
       color: red;
     }
@@ -88,33 +90,35 @@
       </section>
 
       <section>
-        <h1>Synopsis</h1>
+        <h1>Why?</h1>
         <ul>
-          <li class="fragment highlight-current-blue">Drupal 8 + GraphQL</li>
-          <li class="fragment highlight-current-blue">Sapper + Svelte</li>
+          <li class="fragment">Performance.</li>
+          <li class="fragment">Better UX</li>
+          <li class="fragment">Productivity: CMS for content, JavaScript for frontend.</li>
+          <li class="fragment">Easier to customize.</li>
+          <li class="fragment">More secure? Smaller attack surface.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Components</h1>
+        <ul>
+          <li class="fragment">Drupal 8: content management</li>
+          <li class="fragment">GraphQL module: query data/content</li>
+          <li class="fragment">Sapper: NodeJS middleware server</li>
+          <li class="fragment">Svelte: JavaScript UI</li>
         </ul>
       </section>
 
       <section>
         <h1>Steps</h1>
         <ul>
-          <li class="fragment highlight-current-blue">Add GraphQL to Drupal</li>
-          <li class="fragment highlight-current-blue">Enable CORS</li>
-          <li class="fragment highlight-current-blue">Set permissions</li>
-          <li class="fragment highlight-current-blue">Create Sapper app</li>
-          <li class="fragment highlight-current-blue">Create <code>/article</code> and <code>/article/*</code> routes</li>
-          <li class="fragment highlight-current-blue">Make GraphQL queries in the <code>preload</code> methods</li>
-        </ul>
-      </section>
-
-      <section>
-        <h1>Benefits</h1>
-        <ul>
-          <li class="fragment highlight-current-blue">Performance.</li>
-          <li class="fragment highlight-current-blue">Better UX (prefetch, transitions, etc.)</li>
-          <li class="fragment highlight-current-blue">CMS for content, JavaScript for frontend.</li>
-          <li class="fragment highlight-current-blue">Easier to customize.</li>
-          <li class="fragment highlight-current-blue">More secure? Smaller attack surface.</li>
+          <li class="fragment">Add GraphQL to Drupal</li>
+          <li class="fragment">Enable CORS</li>
+          <li class="fragment">Set permissions</li>
+          <li class="fragment">Create Sapper app</li>
+          <li class="fragment">Create <code>/article</code> and <code>/article/*</code> routes</li>
+          <li class="fragment">Make GraphQL queries in the <code>preload</code> methods</li>
         </ul>
       </section>
 
