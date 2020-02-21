@@ -26,11 +26,21 @@ Single Page Applications (SPA) / web sites.
 - Mobile ready and offline-first due to Sapper's service worker.
 - All the sweetness of Svelte, which makes it super easy to build highly interactive JavaScript driven sites.
 
-## Getting started
+## Project Setup
 
 - Clone this repo
-- Setup a Drupal site with REST module enabled such that it is serving JSON version of a node at `/node/{nid}?_format=json`
-- Also add a view the serves a JSON array of node fields (nid, title, path) at `/node/rest`
-- Copy `src/@lib/config.example.js` to `src/@lib/config.js` and edit it to match your setup
+- Make sure you make the following changes to your Drupal 8 setup:
+  - install and enable GraphQL and GraphQL Core module
+  - give the following permissions to Anonymous User under GraphQL module: "Execute arbitrary GraphQL requests" and "Bypass field security"
+  - in sites/default directory, copy default.services.yml to services.yml and enable CORS
+```
+...
+  cors.config:
+    enabled: true
+    allowedHeaders: ['x-csrf-token','authorization','content-type','accept','origin','x-requested-with', 'access-control-allow-origin']
+    allowedMethods: ['*']
+    allowedOrigins: ['*']
+```
+- Edit `src/config.js` to point the URL to your Drupal 8 site
 - Run `npm install`
 - Run `npm run dev` or `npm start` or `npm run build` or any of the npm scripts in `pacakge.json`
